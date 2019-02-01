@@ -5,10 +5,57 @@ public class Main {
 
     Scanner s = new Scanner(System.in);                   //Vart ska scanner in och varför? ta in från tangentbordet.
 
+    /*public static void main(String[] args) {
 
-    public static void main(String args[]) {
+        while (true) {
+            System.out.println("1. Registrera ny kund");
+            System.out.println("2. Handla varor");
+            System.out.println("3. Sök kund");
+            System.out.println("0. Avsluta");
 
-        Customer c1 = new Customer();
+            switch (readANumber()) {
+                case 0:
+                    return;  //Lämnar main metoden och därmed avslutas applikationen.
+                case 1:
+                    guessTheNumber();
+                    break;
+                case 2:
+                    printWithLoop();
+                    break;
+                case 3:
+                    manyNumbers();
+                    break;
+                default:
+                    System.out.println("Ej giltigt val"); //om användaren väljer ett tal ex 4 som inte finns med//
+            }
+        }*/
+
+    //private static void nyKund() {
+                                               //Vad vill jag läsa in i ny kund? Ange: Namn (Stor bokstav), ange
+     //   System.out.println("Name: ");           //vid inläsning godtas endast stor bokstav, vid inläsning tilldelas id.
+       // System.out.println("City: ");
+
+
+        //int[] numbers = new int[customerRegistration];
+
+        //for (int i = 0; i < numberCount; i++) {
+          //  System.out.println("Skriv en siffra:");
+            //numbers[i] = readANumber();
+        //}
+
+
+
+
+
+
+
+
+
+
+    public static void main(String args[]) {            //meny switsh sats.. den som heter ny kund ska metoden ligga i main.
+                                                          // alla ut och in skrifter ska ske i main.
+        Customer c1 = new Customer();             // i registrering påkallar jag med objekt den. i metoden i main tar jag
+                                                             /* gettern och kallar det jag behöver i customer */
         Customer c2 = new Customer();
 
         c1.name = "Robin";
@@ -27,15 +74,13 @@ public class Main {
 
 
     //Public void customerlist(String name, String )
-      //  array kund till varor id namn mm
+    //  array kund till varor id namn mm
+
+
+    //ArrayList<customer> customers = new ArrayList<>();{
+
+
+    }//
+
+
 }
-  /*
-   ArrayList<customer> customers = new ArrayList<>();//
-   public static void guessTheNumber() {
-   int secretNumber = (int) (Math.random() * 50) + 1; //formeln: x=random()*(max-min+1)+min. *0,99999 sedan klippa av decimalerna//
-   int yourGuess = 0;
-   int id = (int) (math.random() ?  //random för att få random id till nya kunder (i klassen customer
-   */
-  //int random;
-//random = (int) (Math.random()*100?);
-//id (random)

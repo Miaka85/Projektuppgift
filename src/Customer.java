@@ -1,8 +1,8 @@
 public class Customer {
 
-    private String name;  //Attribut fält
-    private String city;
-    private int id;
+    public String name;  //Attribut fält
+    public String city;
+    public int id;
 
 
     public Customer(String name, String city, int id){ //  konstruktor
@@ -13,10 +13,11 @@ public class Customer {
 
 
 
-
     public void setName(String newName){   //Setters och getters
         this.name = newName;
     }
+
+
     public String getName() {
         return this.name;
     }
@@ -33,6 +34,15 @@ public class Customer {
     }
     public int getId(){
         return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
 

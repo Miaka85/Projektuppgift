@@ -6,7 +6,7 @@ public class Product {
     private String units;
 
 
-    public Product(String name, String type, float price, String units) {   //konstruktor
+    public Product() {   //konstruktor
         this.name = name;
         this.type = type;
         this.price = price;
@@ -44,6 +44,16 @@ public class Product {
         return units;
     }
 
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", price=" + price +
+                ", units='" + units + '\'' +
+                '}';
+    }
 }
 
 
