@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    Scanner s = new Scanner(System.in);                   //Vart ska scanner in och varför? ta in från tangentbordet.
+    public static void main(String[] args) {
 
-    /*public static void main(String[] args) {
+    boolean control = true;
 
         while (true) {
             System.out.println("1. Registrera ny kund");
@@ -17,7 +17,7 @@ public class Main {
                 case 0:
                     return;  //Lämnar main metoden och därmed avslutas applikationen.
                 case 1:
-                    guessTheNumber();
+                    guessTheNumber(); customerRegistration
                     break;
                 case 2:
                     printWithLoop();
@@ -54,9 +54,17 @@ public class Main {
 
     public static void main(String args[]) {            //meny switsh sats.. den som heter ny kund ska metoden ligga i main.
                                                           // alla ut och in skrifter ska ske i main.
+
+        Scanner scan = new Scanner(System.in);
+
         Customer c1 = new Customer();             // i registrering påkallar jag med objekt den. i metoden i main tar jag
                                                              /* gettern och kallar det jag behöver i customer */
         Customer c2 = new Customer();
+
+        System.out.println("Name: ");
+        x = scan.nextInt();
+
+
 
         c1.name = "Robin";
         c1.city = "Göteborg";
@@ -83,4 +91,4 @@ public class Main {
     }//
 
 
-}
+

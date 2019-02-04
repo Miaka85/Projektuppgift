@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ProductRegistration {
+public class ProductRegistration  {
 
     Product Apelsin = new Product();
     Apelsin.get.name = "Apelsin";

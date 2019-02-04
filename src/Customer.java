@@ -1,8 +1,8 @@
 public class Customer {
 
-    public String name;  //Attribut fält
-    public String city;
-    public int id;
+    private String name;  //Attribut fält
+    private String city;
+    private int id;
 
 
     public Customer(String name, String city, int id){ //  konstruktor

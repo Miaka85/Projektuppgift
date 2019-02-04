@@ -6,7 +6,7 @@ public class Product {
     private String units;
 
 
-    public Product() {   //konstruktor
+    public Product(String name, String type, float price, String units) {   //konstruktor
         this.name = name;
         this.type = type;
         this.price = price;
@@ -54,7 +54,10 @@ public class Product {
                 ", units='" + units + '\'' +
                 '}';
     }
+
+    //allProducts.add(new Product("Orange", "Fruits", "20kr/kg"))
 }
+
 
 
 
