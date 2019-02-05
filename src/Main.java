@@ -63,6 +63,7 @@ public class Main {
         do {
             try {
                 temp = input.nextInt();
+                input.nextLine();                      //Även texten (string) som anges i switchsatsen
                 validinput = true;
             } catch (InputMismatchException e) {
                                                                   //Hanterar fel här som om man skriver in bokstav exempelvis
