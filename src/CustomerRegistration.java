@@ -1,11 +1,13 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CustomerRegistration {
 
     ArrayList<Customer> customers = new ArrayList<>();
 
 }
+
+
+
 
 
 //  System.out.print(c.getName()); //??

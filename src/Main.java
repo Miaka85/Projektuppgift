@@ -2,12 +2,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    Scanner input = new Scanner(System.in);
+
+    static Scanner input = new Scanner(System.in);
+
     CustomerRegistration customerList = new CustomerRegistration(); //objekt customerList av klassen customerregistration
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
+        Main mainObject = new Main();
 
         boolean control = true;
 
@@ -19,9 +20,9 @@ public class Main {
 
             switch (getNumber()) {
                 case 0:
-                    return;  //Lämnar main metoden och därmed avslutas applikationen.
+                    return;  //Avslutat switch satsen
                 case 1:
-                    //customerRegistration customerList?(); //hur hämtar jag metoden ifrån annan klass? inte genom objekt?
+                    mainObject.addCustomer(); //hur hämtar jag metoden ifrån annan klass? inte genom objekt?
                     break;
                 case 2:
                     //Product registration metod läsa in varor ();
@@ -38,8 +39,10 @@ public class Main {
     }
 
 
-    public void addCustomer() {
 
+
+    public void addCustomer() {
+        //Scanner input = new Scanner(System.in);  //vad ska referensvariablen i scanner vara om den ska ligga i classen
         System.out.println("Enter your Name: ");
         String name = input.nextLine();
         System.out.println("Enter your City: ");
@@ -55,17 +58,16 @@ public class Main {
 
 
     public static int getNumber() {   //denna metod används för att kunna välja rätt siffra i menyvalen i switchsatsen
-        Scanner sc = new Scanner(System.in);
         int temp = 0;
         boolean validinput = false;  //om användaren skriver in annat än de nummerval som finns
         do {
             try {
-                temp = sc.nextInt();
+                temp = input.nextInt();
                 validinput = true;
             } catch (InputMismatchException e) {
                                                                   //Hanterar fel här som om man skriver in bokstav exempelvis
                 System.out.println(" Ingen siffra. försök igen.");
-                sc.next();
+                input.next();
             }
         } while (!validinput);
         return temp;

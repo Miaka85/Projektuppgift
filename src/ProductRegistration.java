@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ProductRegistration {
+/*public class ProductRegistration {
 
   /*  Product Apelsin = new Product();
     Apelsin.get.name = "Apelsin";
@@ -8,7 +8,7 @@ public class ProductRegistration {
     Apelsin.get.price = "20kr/kg";
     Apelsin.get.unit*/
 
-    ArrayList<product> allProducts = New ArrayList<product>();{
+ /*   ArrayList<product> allProducts = New ArrayList<product>();{
 
         Product p = new Product(name, type, price, unit);
         p name = "Apelsin";
@@ -20,4 +20,4 @@ public class ProductRegistration {
     }
 //allProducts.add(new Product("Orange", "Fruits", "20kr/kg"))*/
 
-}
+//}
