@@ -1,94 +1,87 @@
-import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+    Scanner input = new Scanner(System.in);
+    CustomerRegistration customerList = new CustomerRegistration(); //objekt customerList av klassen customerregistration
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
-    boolean control = true;
 
-        while (true) {
+        boolean control = true;
+
+        while (control) {
             System.out.println("1. Registrera ny kund");
-            System.out.println("2. Handla varor");
+            System.out.println("2. Registrera ny vara");
             System.out.println("3. Sök kund");
             System.out.println("0. Avsluta");
 
-            switch (readANumber()) {
+            switch (getNumber()) {
                 case 0:
                     return;  //Lämnar main metoden och därmed avslutas applikationen.
                 case 1:
-                    guessTheNumber(); customerRegistration
+                    //customerRegistration customerList?(); //hur hämtar jag metoden ifrån annan klass? inte genom objekt?
                     break;
                 case 2:
-                    printWithLoop();
+                    //Product registration metod läsa in varor ();
                     break;
                 case 3:
-                    manyNumbers();
+                    //customer registration?se bild tavlan kopplat samman();
                     break;
                 default:
-                    System.out.println("Ej giltigt val"); //om användaren väljer ett tal ex 4 som inte finns med//
+                    System.out.println("Ej giltigt val"); //om användaren väljer ett tal som ej finns med
             }
-        }*/
-
-    //private static void nyKund() {
-                                               //Vad vill jag läsa in i ny kund? Ange: Namn (Stor bokstav), ange
-     //   System.out.println("Name: ");           //vid inläsning godtas endast stor bokstav, vid inläsning tilldelas id.
-       // System.out.println("City: ");
+        }
 
 
-        //int[] numbers = new int[customerRegistration];
-
-        //for (int i = 0; i < numberCount; i++) {
-          //  System.out.println("Skriv en siffra:");
-            //numbers[i] = readANumber();
-        //}
-
-
-
-
-
-
-
-
-
-
-    public static void main(String args[]) {            //meny switsh sats.. den som heter ny kund ska metoden ligga i main.
-                                                          // alla ut och in skrifter ska ske i main.
-
-        Scanner scan = new Scanner(System.in);
-
-        Customer c1 = new Customer();             // i registrering påkallar jag med objekt den. i metoden i main tar jag
-                                                             /* gettern och kallar det jag behöver i customer */
-        Customer c2 = new Customer();
-
-        System.out.println("Name: ");
-        x = scan.nextInt();
-
-
-
-        c1.name = "Robin";
-        c1.city = "Göteborg";
-        c1.id = 5;
-
-
-        c2.name = "Mia";
-        c2.city = "Ljungskile";
-        c2.id = 9;
-
-
-        System.out.println(c1.name + " " + c1.city + " " + c1.id);
-        System.out.println(c2.name + " " + c2.city + " " + c1.id);
     }
 
 
-    //Public void customerlist(String name, String )
-    //  array kund till varor id namn mm
+    public void addCustomer() {
+
+        System.out.println("Enter your Name: ");
+        String name = input.nextLine();
+        System.out.println("Enter your City: ");
+        String city = input.nextLine();
+
+        customerList.customers.add(new Customer(name, city));  //läser in och lagrar "city och name" från användaren.
+                                                               //pekar till referens variabeln customerList i objektet i main,
+                                                               //och in i arrayen i CustomerRegistration.
+    }
 
 
-    //ArrayList<customer> customers = new ArrayList<>();{
 
 
-    }//
+
+    public static int getNumber() {   //denna metod används för att kunna välja rätt siffra i menyvalen i switchsatsen
+        Scanner sc = new Scanner(System.in);
+        int temp = 0;
+        boolean validinput = false;  //om användaren skriver in annat än de nummerval som finns
+        do {
+            try {
+                temp = sc.nextInt();
+                validinput = true;
+            } catch (InputMismatchException e) {
+                                                                  //Hanterar fel här som om man skriver in bokstav exempelvis
+                System.out.println(" Ingen siffra. försök igen.");
+                sc.next();
+            }
+        } while (!validinput);
+        return temp;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 

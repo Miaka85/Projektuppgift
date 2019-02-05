@@ -55,7 +55,7 @@ public class Product {
                 '}';
     }
 
-    //allProducts.add(new Product("Orange", "Fruits", "20kr/kg"))
+
 }
 
 

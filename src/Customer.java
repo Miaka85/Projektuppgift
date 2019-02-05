@@ -1,22 +1,22 @@
 public class Customer {
 
-    private String name;  //Attribut fält
+    private String name;  // fält
     private String city;
-    private int id;
+    static int count = 1;  //kan man ge unikt id såhär??
+    int id;
 
 
-    public Customer(String name, String city, int id){ //  konstruktor
+    public Customer(String name, String city){ // konstruktor
             this.name = name;
             this.city = city;
-            this.id = id;
+            this.id = count++;
         }
 
 
 
-    public void setName(String newName){   //Setters och getters
+    public void setName(String newName){
         this.name = newName;
     }
-
 
     public String getName() {
         return this.name;
@@ -33,6 +33,7 @@ public class Customer {
         this.id =newId;
     }
     public int getId(){
+
         return this.id;
     }
 
