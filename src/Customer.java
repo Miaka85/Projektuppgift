@@ -13,7 +13,6 @@ public class Customer {
         }
 
 
-
     public void setName(String newName){  // Setters and Getters
         this.name = newName;
     }

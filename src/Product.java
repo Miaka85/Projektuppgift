@@ -3,14 +3,14 @@ public class Product {
     private String name;                                                 //attribut
     private String type;
     private float price;
-    private String units;
+    private String unit;
 
 
-    public Product(String name, String type, float price, String units) {   //konstruktor
+    public Product(String name, String type, float price, String unit) {   //konstruktor
         this.name = name;
         this.type = type;
         this.price = price;
-        this.units = units;
+        this.unit = unit;
     }
 
     public void setname(String newName) {
@@ -37,11 +37,11 @@ public class Product {
         return price;
     }
 
-    public void setUnits(String newUnits){
+    public void setUnit(String newUnit){
     }
 
-    public String getUnits() {
-        return units;
+    public String getUnit() {
+        return unit;
     }
 
 
@@ -51,7 +51,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", units='" + units + '\'' +
+                ", units='" + unit + '\'' +
                 '}';
     }
 

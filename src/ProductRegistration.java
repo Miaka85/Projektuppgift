@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ProductRegistration {
+/*public class ProductRegistration {
 
     ArrayList<Product> products = new ArrayList<>(); //eller koppla samman varor och kund direkt i en array customer/product
 
@@ -24,10 +24,6 @@ public class ProductRegistration {
 //allProducts.add(new Product("Orange", "Fruits", "20kr/kg"))*/
 
 
- }
-}
 
 
 
-
-//}

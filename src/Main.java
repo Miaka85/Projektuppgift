@@ -6,9 +6,9 @@ public class Main {
     static Scanner input = new Scanner(System.in);  //reads in input from the console
 
     CustomerRegistration cr = new CustomerRegistration(); //object by the class CustomerRegistration
-    Customer c = new Customer();
-    ShoppingCart sc = new ShoppingCart(c);
-
+    //Customer c = new Customer();
+    //ShoppingCart sc = new ShoppingCart(c);
+    ShoppingCart sc = new ShoppingCart();
 
     public static void main(String[] args) {
         Main mainObject = new Main();  //Object that enable to reach methods outside the main-method
@@ -55,35 +55,25 @@ public class Main {
     }
 
     public void customerList() {
-
         for (int i = 0; i < cr.customers.size(); i++)  //For loop that list all the registrated customers.
             System.out.println(cr.customers.get(i));
-
-
-        //for loop som visar kund listan, arrayen customerRegistration
-
-       // System.out.println("Lista över all kunder: " + listan variabeln);
+        //ska dne andra listan ut här med varor och kunder kopplade?
     }
 
+    private void addProduct() {
 
+        System.out.println("Ange en vara: ");
+        String name  =input.nextLine();
+        System.out.println("Ange varans kategori: ");
+        String type  =input.nextLine();
+        System.out.println("Ange varans pris: ");
+        int price =input.nextInt();
+        System.out.println("Ange varans enhet: ");
+        String unit =input.nextLine();
 
-    public void addProduct() {
-
-
-        System.out.println("lista över vilka varor som finns");
-
-        System.out.println("Välj vara: ");
-        String ...  =input.nextLine();
-        System.out.println(": ");
-        String ... =input.nextLine();
-        System.out.println(": ");
-        Int ... =input.nextInt();
-
-    sc.addProduct(new Product());
+    sc.products.add(new Product(name, type, price, unit));
 
        }
-
-
 
 
 
@@ -97,9 +87,9 @@ public class Main {
                 temp = input.nextInt();
                 input.nextLine();                      //Även texten (string) som anges i switchsatsen
                 validinput = true;
-            } catch (InputMismatchException e) {
-                                                                  //Hanterar fel här som om man skriver in bokstav exempelvis
-                System.out.println(" Ingen siffra. försök igen.");
+            } catch (InputMismatchException e) {    //Hanterar fel här som om man skriver in bokstav exempelvis
+
+                System.out.println("Error, försök igen.");
                 input.next();
             }
         } while (!validinput);
