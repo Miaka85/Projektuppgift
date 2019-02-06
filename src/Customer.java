@@ -1,20 +1,20 @@
 public class Customer {
 
-    private String name;  // fält
+    private String name;  // Field
     private String city;
-    static int count = 1;  //kan man ge unikt id såhär??
+    static int count = 1;  //This gives the customer a individual id
     int id;
 
 
-    public Customer(String name, String city){ // konstruktor
-            this.name = name;
+    public Customer(String name, String city){ // constructor that gives the right value
+            this.name = name;                   //using "this" to point at the instance variables
             this.city = city;
             this.id = count++;
         }
 
 
 
-    public void setName(String newName){
+    public void setName(String newName){  // Setters and Getters
         this.name = newName;
     }
 
@@ -38,7 +38,7 @@ public class Customer {
     }
 
     @Override
-    public String toString() {
+    public String toString() {                         //
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
