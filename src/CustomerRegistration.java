@@ -15,7 +15,9 @@ public class CustomerRegistration {
             if( c.id == id )
                 return c;
         }
+        return null;
     }
+
 }
 
 

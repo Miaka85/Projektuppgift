@@ -76,18 +76,21 @@ public class Main {
        {
            //Fråga användaren efter vilket kundid som ska köpa varor
            System.out.println("Ange kund id");
+           int chosenId =input.nextInt();
 
-
-           int id = ??
+           int id = chosenId;
            Customer customer = cr.getCustomer(id);
+           if(customer != null){
+               //loopa listan med registrerade produkter här
+               //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
+               Product product = ??
+               customer.products.add(product);
 
-           //loopa listan med registrerade produkter här
-           //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
-           Product product = ??
-           customer.products.add(product);
+               //läs in detta till arrayen i customers.. färdigt.
+           }
+           }
 
-           //läs in detta till arrayen i customers.. färdigt.
-       }
+
 
 
 
