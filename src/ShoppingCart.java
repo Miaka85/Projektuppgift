@@ -3,20 +3,20 @@ import java.util.ArrayList;
 public class ShoppingCart {
 
     ArrayList<Product> products = new ArrayList<>(); //ArrayList that stores all the registrated products
-    //skriv ut denna där jag väljer varor kopplat till kund(registrerade varor)
 
-   /* public void addCustomer(Customer customer) {
+   public void addProduct(Product product) {
 
-        customers.add(customer);
+        products.add(product);   ///Ändra i main där produkter registreras, det ska stå addproduct ist product.add
     }
 
-    public Customer getCustomer(int id){
-        for(int i = 0; i < customers.size(); i++){   // gör exakt denna till products oxå
-            Customer c = customers.get(i);
-            if( c.id == id )
-                return c;
+    public Product getProduct(int id){
+        for(int i = 0; i < products.size(); i++){   // gör exakt denna till products oxå
+            Product p = products.get(i);
+            if( p.id == id )
+                return p;
         }
-    }*/
+        return null;
+    }
 }
 
 

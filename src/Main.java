@@ -16,7 +16,7 @@ public class Main {
             System.out.println("1. Registrera ny kund");
             System.out.println("2. Registrera ny vara"); //ett till case som skriver ut varulista innan denna/eller i
             System.out.println("3. Sök kund"); //getId metod som användaren får ange ett id och söker kund
-            System.out.println("4. Skriv ut Lista över kunder"); //genom en metod i main som innehåller en for loop
+            System.out.println("4. Kundlista"); //genom en metod i main som innehåller en for loop
             System.out.println("0. Avsluta");
 
             switch (getNumber()) {
@@ -32,7 +32,7 @@ public class Main {
                      //customer registration?se bild tavlan kopplat samman. sök id, metod getId()(vill visa kund och vara);
                     break;
                 case 4:
-                    mainObject.customerList(); //en metod i main som gör en for loop och pekar på arrayen inuti..gitHub();
+                    mainObject.customerList();
                     break;
                 default:
                     System.out.println("Ej giltigt val"); //If the user chose a invalid number
@@ -68,7 +68,7 @@ public class Main {
         System.out.println("Ange varans enhet: ");
         String unit =input.nextLine();
 
-    sc.products.add(new Product(name, type, price, unit));
+        sc.addProduct(new Product(name, type, price, unit));
 
        }
 
@@ -81,9 +81,17 @@ public class Main {
            int id = chosenId;
            Customer customer = cr.getCustomer(id);
            if(customer != null){
-               //loopa listan med registrerade produkter här
+
+               for (int i = 0; i < sc.products.size(); i++)  //Fkoppla denna loop till objekt i main till shopping
+                   System.out.println(sc.products.get(i));
+
                //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
-               Product product = ??
+               System.out.println("Välj vara");
+               String chosenProduct =input.nextLine();
+
+
+
+               Product product = chosenProduct;
                customer.products.add(product);
 
                //läs in detta till arrayen i customers.. färdigt.

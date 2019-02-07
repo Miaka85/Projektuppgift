@@ -41,7 +41,7 @@ public class Customer {
     }
 
     @Override
-    public String toString() {                         //
+    public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
