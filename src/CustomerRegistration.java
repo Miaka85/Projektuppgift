@@ -4,20 +4,19 @@ public class CustomerRegistration {
 
     ArrayList<Customer> customers = new ArrayList<>(); //ArrayList that stores all the Customers
 
+    public void addCustomer(Customer customer) {
+
+        customers.add(customer);
+    }
+
+    public Customer getCustomer(int id){
+        for(int i = 0; i < customers.size(); i++){   // gör exakt denna till products oxå
+            Customer c = customers.get(i);
+            if( c.id == id )
+                return c;
+        }
+    }
 }
 
 
 
-
-
-//  System.out.print(c.getName()); //??
-   /* public static void printList(List<Customer> list) {
-
-        System.out.println("Customers: ");
-
-
-    }*/
-
-// void getCustomer(id) {
-//    Customer cus = new Customer(id);                //om inte id i customer fungerar?
-//   this.id = count++;

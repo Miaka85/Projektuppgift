@@ -6,8 +6,7 @@ public class Main {
     static Scanner input = new Scanner(System.in);  //reads in input from the console
 
     CustomerRegistration cr = new CustomerRegistration(); //object by the class CustomerRegistration
-    //Customer c = new Customer();
-    //ShoppingCart sc = new ShoppingCart(c);
+
     ShoppingCart sc = new ShoppingCart();
 
     public static void main(String[] args) {
@@ -43,21 +42,19 @@ public class Main {
 
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
-                                                 //It points at the object "cr" that points at CustomerRegistration
+                                                 //It points at the object "cr" of the class CustomerRegistration
         System.out.println("Enter your Name: "); // and store the input in the customer arrayList
         String name = input.nextLine();
         System.out.println("Enter your City: ");
         String city = input.nextLine();
 
-        cr.customers.add(new Customer(name, city));  //läser in och lagrar "city och name" från användaren.
-        //pekar till referens variabeln customerList i objektet i main,
-        //och in i arrayen i CustomerRegistration.
+        cr.addCustomer(new Customer(name,city));
     }
 
     public void customerList() {
-        for (int i = 0; i < cr.customers.size(); i++)  //For loop that list all the registrated customers.
-            System.out.println(cr.customers.get(i));
-        //ska dne andra listan ut här med varor och kunder kopplade?
+        for (int i = 0; i < cr.customers.size(); i++)  //For loop that list and print all the registrated customers
+            System.out.println(cr.customers.get(i));  // /n? för att få list format
+                                                      //ska den andra listan ut här med varor och kunder kopplade?
     }
 
     private void addProduct() {
@@ -75,7 +72,22 @@ public class Main {
 
        }
 
+       public void addProductToCustomer()  //lägg till i menyn i svitch satsen!
+       {
+           //Fråga användaren efter vilket kundid som ska köpa varor
+           System.out.println("Ange kund id");
 
+
+           int id = ??
+           Customer customer = cr.getCustomer(id);
+
+           //loopa listan med registrerade produkter här
+           //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
+           Product product = ??
+           customer.products.add(product);
+
+           //läs in detta till arrayen i customers.. färdigt.
+       }
 
 
 

@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Customer {
 
     private String name;  // Field
     private String city;
     static int count = 1;  //This gives the customer a individual id
     int id;
+
+    ArrayList<Product> products = new ArrayList<>();
 
 
     public Customer(String name, String city){ // constructor that gives the right value
