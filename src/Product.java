@@ -4,13 +4,16 @@ public class Product {
     private String type;
     private float price;
     private String unit;
+    static int count = 1;  //This gives the product a individual id
+    int id;
 
-
-    public Product(String name, String type, float price, String unit) {   //konstruktor
+    public Product(String name, String type, float price, String unit) {   //construktor
         this.name = name;
         this.type = type;
         this.price = price;
         this.unit = unit;
+        this.id = count++;
+
     }
 
     public void setname(String newName) {
@@ -44,6 +47,14 @@ public class Product {
         return unit;
     }
 
+    public void setId(int newId){
+        this.id =newId;
+    }
+    public int getId(){
+
+        return this.id;
+    }
+
 
     @Override
     public String toString() {
@@ -51,11 +62,10 @@ public class Product {
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", units='" + unit + '\'' +
+                ", unit='" + unit + '\'' +
+                ", id=" + id +
                 '}';
     }
-
-
 }
 
 

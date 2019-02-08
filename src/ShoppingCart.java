@@ -6,7 +6,7 @@ public class ShoppingCart {
 
    public void addProduct(Product product) {
 
-        products.add(product);   ///Ändra i main där produkter registreras, det ska stå addproduct ist product.add
+        products.add(product);
     }
 
     public Product getProduct(int id){

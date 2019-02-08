@@ -15,7 +15,7 @@ public class Main {
         while (true) {
             System.out.println("1. Registrera ny kund");
             System.out.println("2. Registrera ny vara"); //ett till case som skriver ut varulista innan denna/eller i
-            System.out.println("3. Sök kund"); //getId metod som användaren får ange ett id och söker kund
+            System.out.println("3. Sök kund"); //getId metod som användaren får ange ett id och söker kund ocg dess varor
             System.out.println("4. Kundlista"); //genom en metod i main som innehåller en for loop
             System.out.println("0. Avsluta");
 
@@ -29,7 +29,7 @@ public class Main {
                     mainObject.addProduct();//Product registration metod läsa in varor ();
                     break;
                 case 3:
-                     //customer registration?se bild tavlan kopplat samman. sök id, metod getId()(vill visa kund och vara);
+                     mainObject.addProductToCustomer(); //
                     break;
                 case 4:
                     mainObject.customerList();
@@ -53,8 +53,8 @@ public class Main {
 
     public void customerList() {
         for (int i = 0; i < cr.customers.size(); i++)  //For loop that list and print all the registrated customers
-            System.out.println(cr.customers.get(i));  // /n? för att få list format
-                                                      //ska den andra listan ut här med varor och kunder kopplade?
+            System.out.println(cr.customers.get(i));
+
     }
 
     private void addProduct() {
@@ -63,7 +63,7 @@ public class Main {
         String name  =input.nextLine();
         System.out.println("Ange varans kategori: ");
         String type  =input.nextLine();
-        System.out.println("Ange varans pris: ");
+        System.out.println("Ange varans pris: ");   ///Hur får jag id till varje vara??
         int price =input.nextInt();
         System.out.println("Ange varans enhet: ");
         String unit =input.nextLine();
@@ -72,9 +72,8 @@ public class Main {
 
        }
 
-       public void addProductToCustomer()  //lägg till i menyn i svitch satsen!
+       public void addProductToCustomer()
        {
-           //Fråga användaren efter vilket kundid som ska köpa varor
            System.out.println("Ange kund id");
            int chosenId =input.nextInt();
 
@@ -82,19 +81,17 @@ public class Main {
            Customer customer = cr.getCustomer(id);
            if(customer != null){
 
-               for (int i = 0; i < sc.products.size(); i++)  //Fkoppla denna loop till objekt i main till shopping
+               for (int i = 0; i < sc.products.size(); i++)
                    System.out.println(sc.products.get(i));
 
                //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
                System.out.println("Välj vara");
                String chosenProduct =input.nextLine();
 
-
-
-               Product product = chosenProduct;
+               //int id = chosenProduct;
+               Product product = sc.getProduct(id);
                customer.products.add(product);
 
-               //läs in detta till arrayen i customers.. färdigt.
            }
            }
 
