@@ -5,14 +5,14 @@ public class Product {
     private float price;
     private String unit;
     static int count = 1;  //This gives the product a individual id
-    int id;
+    int idproduct;
 
     public Product(String name, String type, float price, String unit) {   //construktor
         this.name = name;
         this.type = type;
         this.price = price;
         this.unit = unit;
-        this.id = count++;
+        this.idproduct = count++;
 
     }
 
@@ -47,12 +47,12 @@ public class Product {
         return unit;
     }
 
-    public void setId(int newId){
-        this.id =newId;
+    public void setId(int newIdproduct){
+        this.idproduct =newIdproduct;
     }
-    public int getId(){
+    public int getIdproduct(){
 
-        return this.id;
+        return this.idproduct;
     }
 
 
@@ -63,7 +63,7 @@ public class Product {
                 ", type='" + type + '\'' +
                 ", price=" + price +
                 ", unit='" + unit + '\'' +
-                ", id=" + id +
+                ", idproduct=" + idproduct +
                 '}';
     }
 }

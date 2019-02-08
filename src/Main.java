@@ -15,8 +15,9 @@ public class Main {
         while (true) {
             System.out.println("1. Registrera ny kund");
             System.out.println("2. Registrera ny vara"); //ett till case som skriver ut varulista innan denna/eller i
-            System.out.println("3. Sök kund"); //getId metod som användaren får ange ett id och söker kund ocg dess varor
+            System.out.println("3. Handla varor"); //getId metod som användaren får ange ett id och söker kund ocg dess varor
             System.out.println("4. Kundlista"); //genom en metod i main som innehåller en for loop
+            System.out.println("5. Sök kund och varukorg");
             System.out.println("0. Avsluta");
 
             switch (getNumber()) {
@@ -34,6 +35,8 @@ public class Main {
                 case 4:
                     mainObject.customerList();
                     break;
+                case 5:
+                    mainObject.seekCustomer();
                 default:
                     System.out.println("Ej giltigt val"); //If the user chose a invalid number
             }
@@ -63,7 +66,7 @@ public class Main {
         String name  =input.nextLine();
         System.out.println("Ange varans kategori: ");
         String type  =input.nextLine();
-        System.out.println("Ange varans pris: ");   ///Hur får jag id till varje vara??
+        System.out.println("Ange varans pris: ");
         int price =input.nextInt();
         System.out.println("Ange varans enhet: ");
         String unit =input.nextLine();
@@ -84,18 +87,22 @@ public class Main {
                for (int i = 0; i < sc.products.size(); i++)
                    System.out.println(sc.products.get(i));
 
-               //Fråga användaren efter vilken vara som ska köpas och koppla till här under??
-               System.out.println("Välj vara");
-               String chosenProduct =input.nextLine();
+               System.out.println("Välj vara" );
+               int chosenProduct =input.nextInt();
 
-               //int id = chosenProduct;
-               Product product = sc.getProduct(id);
+               int idproduct = chosenProduct;
+               Product product = sc.getProduct(idproduct);
                customer.products.add(product);
-
+            System.out.println(customer);
+            System.out.println(customer.products.toString());
            }
            }
 
+        public void seekCustomer() {
 
+
+
+    }
 
 
 
