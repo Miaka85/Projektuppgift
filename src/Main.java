@@ -112,8 +112,8 @@ public class Main {
 
         float totalPrice = 0;
 
-        for(Product product:customer.customerCart) {
-            totalPrice += product.getPrice();
+        for(Product product:customer.customerCart) { // for each loop som plussar på varje kunds
+            totalPrice += product.getPrice();       // produkt pris till det totala värdet i varukorgen
 
          }
         System.out.println("Total pris: " + totalPrice);
