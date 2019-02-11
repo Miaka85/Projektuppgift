@@ -7,16 +7,17 @@ public class Main {
 
     CustomerRegistration cr = new CustomerRegistration(); //object by the class CustomerRegistration
 
-    ShoppingCart sc = new ShoppingCart();
+    ShoppingCart sc = new ShoppingCart();  //object by the class ShoppingCart
+
 
     public static void main(String[] args) {
         Main mainObject = new Main();  //Object that enable to reach methods outside the main-method
 
-        while (true) {
+        while (true) {     //While loop
             System.out.println("1. Registrera ny kund");
-            System.out.println("2. Registrera ny vara"); //ett till case som skriver ut varulista innan denna/eller i
-            System.out.println("3. Handla varor"); //getId metod som användaren får ange ett id och söker kund ocg dess varor
-            System.out.println("4. Kundlista"); //genom en metod i main som innehåller en for loop
+            System.out.println("2. Registrera ny vara");
+            System.out.println("3. Handla varor");
+            System.out.println("4. Kundlista");
             System.out.println("5. Sök kund och varukorg");
             System.out.println("0. Avsluta");
 
@@ -24,19 +25,19 @@ public class Main {
                 case 0:
                     return;  //Ends the Switch statement
                 case 1:
-                    mainObject.addCustomer(); //points at the method addCustomers
+                    mainObject.addCustomer();//points at the method addCustomers
                     break;
                 case 2:
-                    mainObject.addProduct();//Product registration metod läsa in varor ();
+                    mainObject.addProduct();//points at the method addProducts that reads in products
                     break;
                 case 3:
-                    mainObject.addProductToCustomer(); //kopplar vara till kund
+                    mainObject.addProductToCustomer();//points at the method that adds product to customer
                     break;
                 case 4:
-                    mainObject.customerList(); //skriver ut kundlista
+                    mainObject.customerList();//points at the method that print a list with all registrated customers
                     break;
                 case 5:
-                    mainObject.seekCustomer();  // skriver ut vald kund och dess varor
+                    mainObject.seekCustomer();//point at the method where you can seek a customer id and se it´s products
                     break;
                 default:
                     System.out.println("Ej giltigt val"); //If the user chose a invalid number
@@ -46,7 +47,7 @@ public class Main {
 
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
-        //It points at the object "cr" of the class CustomerRegistration
+                                                 //It points at the object "cr" of the class CustomerRegistration
         System.out.println("Enter your Name: "); // and store the input in the customer arrayList
         String name = input.nextLine();
         System.out.println("Enter your City: ");
@@ -92,9 +93,9 @@ public class Main {
 
             int idproduct = chosenProduct;
             Product product = sc.getProduct(idproduct);
-            customer.products.add(product);
+            customer.customerCart.add(product);
             System.out.println(customer);
-            System.out.println(customer.products.toString());
+            System.out.println(customer.customerCart.toString());
 
 
         }
@@ -102,18 +103,20 @@ public class Main {
 
     public void seekCustomer() {
 
-
        System.out.println("Ange kund id");
         int chosenId = input.nextInt();
-
         int id = chosenId;
-        Customer customer = cr.getCustomer(id);  //fungerar det att ha denna här?
-        if (customer != null) {
+        Customer customer = cr.getCustomer(id);
+        System.out.println(customer);
+        System.out.println(customer.customerCart.toString());
 
+        float totalPrice = 0;
 
-            System.out.println(customer.products.toString());
+        for(Product product:customer.customerCart) {
+            totalPrice += product.getPrice();
 
-        }
+         }
+        System.out.println("Total pris: " + totalPrice);
         }
 
 

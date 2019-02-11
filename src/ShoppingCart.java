@@ -10,7 +10,7 @@ public class ShoppingCart {
     }
 
     public Product getProduct(int idproduct){
-        for(int i = 0; i < products.size(); i++){   // gör exakt denna till products oxå
+        for(int i = 0; i < products.size(); i++){
             Product p = products.get(i);
             if( p.idproduct == idproduct )
                 return p;

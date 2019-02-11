@@ -7,7 +7,7 @@ public class Customer {
     static int count = 1;  //This gives the customer a individual id
     int id;
 
-    ArrayList<Product> products = new ArrayList<>();  //vart kallar jag på denna? är denna samma som den i products??
+    ArrayList<Product> customerCart = new ArrayList<>(); //ArrayList that stores products to the customers
 
 
     public Customer(String name, String city){ // constructor that gives the right value

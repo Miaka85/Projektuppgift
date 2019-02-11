@@ -64,7 +64,7 @@ public class Product {
                 ", price=" + price +
                 ", unit='" + unit + '\'' +
                 ", idproduct=" + idproduct +
-                '}';
+                '}' + "\n";
     }
 }
 
