@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 
     ArrayList<Product> products = new ArrayList<>(); //ArrayList that stores all the registrated products
 

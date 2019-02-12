@@ -1,17 +1,23 @@
+import java.io.*;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
+
     static Scanner input = new Scanner(System.in);  //reads in input from the console
+
 
     CustomerRegistration cr = new CustomerRegistration(); //object by the class CustomerRegistration
 
     ShoppingCart sc = new ShoppingCart();  //object by the class ShoppingCart
 
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception{
         Main mainObject = new Main();  //Object that enable to reach methods outside the main-method
+        mainObject.load();
 
         while (true) {     //While loop
             System.out.println("1. Registrera ny kund");
@@ -42,12 +48,13 @@ public class Main {
                 default:
                     System.out.println("Ej giltigt val"); //If the user chose a invalid number
             }
+            mainObject.save();
         }
     }
 
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
-                                                 //It points at the object "cr" of the class CustomerRegistration
+        //It points at the object "cr" of the class CustomerRegistration
         System.out.println("Enter your Name: "); // and store the input in the customer arrayList
         String name = input.nextLine();
         System.out.println("Enter your City: ");
@@ -70,8 +77,8 @@ public class Main {
         String type = input.nextLine();
         System.out.println("Ange varans pris: ");
         int price = input.nextInt();
-        System.out.println("Ange varans enhet: ");
-        String unit = input.nextLine();
+        System.out.println("Ange varans enhet: ");  //output and input. Sends the new values of name, type, price and unit
+        String unit = input.nextLine();             // to the class shooppingCart
 
         sc.addProduct(new Product(name, type, price, unit));
 
@@ -81,17 +88,17 @@ public class Main {
         System.out.println("Ange kund id");
         int chosenId = input.nextInt();
 
-        int id = chosenId;
+        int id = chosenId;           //gives the input value to id
         Customer customer = cr.getCustomer(id);
         if (customer != null) {
 
-            for (int i = 0; i < sc.products.size(); i++)
-                System.out.println(sc.products.get(i));
+            for (int i = 0; i < sc.products.size(); i++)  //a for-loop that outprint all the registrated products from
+                System.out.println(sc.products.get(i));    //the product arraylist
 
             System.out.println("Välj vara");
-            int chosenProduct = input.nextInt();
+            int chosenProduct = input.nextInt();  //
 
-            int idproduct = chosenProduct;
+            int idproduct = chosenProduct;      //Idproduct Reads in the new value
             Product product = sc.getProduct(idproduct);
             customer.customerCart.add(product);
             System.out.println(customer);
@@ -103,7 +110,7 @@ public class Main {
 
     public void seekCustomer() {
 
-       System.out.println("Ange kund id");
+        System.out.println("Ange kund id");
         int chosenId = input.nextInt();
         int id = chosenId;
         Customer customer = cr.getCustomer(id);
@@ -112,34 +119,62 @@ public class Main {
 
         float totalPrice = 0;
 
-        for(Product product:customer.customerCart) { // for each loop som plussar på varje kunds
+        for (Product product : customer.customerCart) { // for each loop som plussar på varje kunds
             totalPrice += product.getPrice();       // produkt pris till det totala värdet i varukorgen
 
-         }
+        }
         System.out.println("Total pris: " + totalPrice);
-        }
-
-
-        public static int getNumber ()
-        {   //denna metod används för att kunna välja rätt siffra i menyvalen i switchsatsen
-            int temp = 0;
-            boolean validinput = false;  //om användaren skriver in annat än de nummerval som finns
-            do {
-                try {
-                    temp = input.nextInt();
-                    input.nextLine();                      //Även texten (string) som anges i switchsatsen
-                    validinput = true;
-                } catch (InputMismatchException e) {    //Hanterar fel här som om man skriver in bokstav exempelvis
-
-                    System.out.println("Error, försök igen.");
-                    input.next();
-                }
-            } while (!validinput);
-            return temp;
-        }
     }
 
 
+    public static int getNumber() {   //denna metod används för att kunna välja rätt siffra i menyvalen i switchsatsen
+        int t = 0;
+        boolean validinput = false;  //om användaren skriver in annat än de nummerval som finns
+        do {
+            try {
+                t = input.nextInt();
+                input.nextLine();                      //Även texten (string) som anges i switchsatsen
+                validinput = true;
+            } catch (InputMismatchException e) {    //Hanterar fel här som om man skriver in bokstav exempelvis
+
+                System.out.println("Error, försök igen.");
+                input.next();
+            }
+        } while (!validinput);
+        return t;
+    }
+
+    public void save() {//Save object to file
+
+        File file = new File("projektet.bin");
+        try (ObjectOutputStream out =
+                     new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
+            out.writeObject(sc.products);
+            out.writeObject(cr.customers);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+        public void load() {
+            File file = new File("projektet.bin");
+            try (ObjectInputStream in =
+                         new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+              sc.products=(ArrayList<Product>) in.readObject();
+              cr.customers=(ArrayList<Customer>) in.readObject();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+}
 
 
 
