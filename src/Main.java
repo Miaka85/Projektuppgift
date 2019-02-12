@@ -81,6 +81,7 @@ public class Main {
         int price = input.nextInt();
         System.out.println("Ange varans enhet: ");  //output and input. Sends the new values of name, type, price and unit
         String unit = input.nextLine();             // to the class shooppingCart
+        input.nextLine();
 
         sc.addProduct(new Product(name, type, price, unit));
 
@@ -133,7 +134,7 @@ public class Main {
             totalPrice += product.getPrice();       // produkt pris till det totala värdet i varukorgen
 
         }
-        System.out.println("Total pris: " + totalPrice);
+        System.out.println("Total pris: " + totalPrice + "Kr");
     }
 
 
@@ -169,7 +170,7 @@ public class Main {
         }
     }
 
-        public void load() {
+        public void load() throws Exception {
             File file = new File("projektet.bin");
             try (ObjectInputStream in =
                          new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
