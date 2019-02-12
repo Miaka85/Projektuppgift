@@ -5,19 +5,13 @@ import java.util.Scanner;
 
 public class Main {
 
-
     static Scanner input = new Scanner(System.in);  //reads in input from the console
-
-
     CustomerRegistration cr = new CustomerRegistration(); //object by the class CustomerRegistration
-
     ShoppingCart sc = new ShoppingCart();  //object by the class ShoppingCart
 
-
-
     public static void main(String[] args) throws Exception{
-        Main mainObject = new Main();  //Object that enable to reach methods outside the main-method
-        mainObject.load();
+        Main mainObject = new Main();  //Object that enable to reach methods outside the static main-method
+        mainObject.load();             //points at the method load and the reference variable in object mainObject
 
         while (true) {     //While loop
             System.out.println("1. Registrera ny kund");
@@ -27,7 +21,7 @@ public class Main {
             System.out.println("5. Sök kund och varukorg");
             System.out.println("0. Avsluta");
 
-            switch (getNumber()) {
+            switch (getNumber()) {         //switch statement that runs if getNumber method is true
                 case 0:
                     return;  //Ends the Switch statement
                 case 1:
@@ -51,7 +45,6 @@ public class Main {
             mainObject.save();
         }
     }
-
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
                                                  //It points at the object "cr" of the class CustomerRegistration
@@ -84,7 +77,6 @@ public class Main {
         input.nextLine();
 
         sc.addProduct(new Product(name, type, price, unit));
-
     }
 
     public static String firstLetterToUpperCase(String input){
@@ -114,7 +106,6 @@ public class Main {
             customer.customerCart.add(product);
             System.out.println(customer);
             System.out.println(customer.customerCart.toString());
-
 
         }
     }
