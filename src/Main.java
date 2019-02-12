@@ -54,11 +54,13 @@ public class Main {
 
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
-        //It points at the object "cr" of the class CustomerRegistration
+                                                 //It points at the object "cr" of the class CustomerRegistration
         System.out.println("Enter your Name: "); // and store the input in the customer arrayList
         String name = input.nextLine();
+        name = firstLetterToUpperCase(name);
         System.out.println("Enter your City: ");
         String city = input.nextLine();
+        city = firstLetterToUpperCase(city);
 
         cr.addCustomer(new Customer(name, city));
     }
@@ -82,6 +84,14 @@ public class Main {
 
         sc.addProduct(new Product(name, type, price, unit));
 
+    }
+
+    public static String firstLetterToUpperCase(String input){
+
+        String first = input.substring(0, 1).toUpperCase();
+        String rest = input.substring(1).toLowerCase();
+
+        return first + rest;
     }
 
     public void addProductToCustomer() {
