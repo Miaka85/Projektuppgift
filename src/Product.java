@@ -1,20 +1,20 @@
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Product implements Serializable {  //The class for products, a shell for the object
 
-    private String name;                                                 //attribut
+    private String name;                          //Field, instance variables , attribute for the object
     private String type;
     private double price;
     private String unit;
-    static int count = 1;  //This gives the product a individual id
+    static int count = 1;
     int idproduct;
 
-    public Product(String name, String type, double price, String unit) {   //construktor
+    public Product(String name, String type, double price, String unit) {   //constructor
         this.name = name;
         this.type = type;
         this.price = price;
         this.unit = unit;
-        this.idproduct = count++;
+        this.idproduct = count++;               //This gives the product a individual id
 
     }
 

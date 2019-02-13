@@ -11,7 +11,7 @@ public class CustomerRegistration implements Serializable {
     }
 
     public Customer getCustomer(int id){
-        for(int i = 0; i < customers.size(); i++){   // gör exakt denna till products oxå
+        for(int i = 0; i < customers.size(); i++){
             Customer c = customers.get(i);
             if( c.id == id )
                 return c;

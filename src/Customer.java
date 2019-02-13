@@ -1,20 +1,20 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer implements Serializable {
+public class Customer implements Serializable {   //Customer class, implement Serializable for the saving
 
-    private String name;  // Field
+    private String name;  // Field with the instance variables for customers
     private String city;
-    static int count = 1;  //This gives the customer a individual id
+    static int count = 1;
     int id;
 
     ArrayList<Product> customerCart = new ArrayList<>(); //ArrayList that stores products to the customers
 
 
-    public Customer(String name, String city){ // constructor that gives the right value
+    public Customer(String name, String city){  // constructor that gives the right value.
             this.name = name;                   //using "this" to point at the instance variables
             this.city = city;
-            this.id = count++;
+            this.id = count++;                  //This count++ gives the customer a individual id
         }
 
 
@@ -42,7 +42,7 @@ public class Customer implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public String toString() {                           //toString method that gives us a nice printing
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
