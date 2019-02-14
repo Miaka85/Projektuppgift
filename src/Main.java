@@ -14,10 +14,10 @@ public class Main {                       //The Main Class
         mainObject.load();             //points at the method load and the refer to the object mainObject
 
         while (true) {     //While loop
-            System.out.println("1. Registrera ny kund");
-            System.out.println("2. Registrera ny vara");
-            System.out.println("3. Handla varor");
-            System.out.println("4. Kundlista");
+            System.out.println("1. Registrera ny kund");  //Print out a menu for the customer to chose from by a number.
+            System.out.println("2. Registrera ny vara");   //Depending on the customers choice of number the same case runs
+            System.out.println("3. Handla varor");         //in the switch statement. The cases in the switch statement
+            System.out.println("4. Kundlista");            //points at different methods.
             System.out.println("5. Sök kund och varukorg");
             System.out.println("0. Avsluta");
 
@@ -25,8 +25,8 @@ public class Main {                       //The Main Class
                 case 0:
                     return;                 //Ends the Switch statement
                 case 1:
-                    mainObject.addCustomer();  //points at the method addCustomers
-                    break;
+                    mainObject.addCustomer();  //points at the method addCustomers that register customers.
+                    break;                     //"break" ends the case when it´s finished
                 case 2:
                     mainObject.addProduct();  //points at the method addProducts that reads in products
                     break;
@@ -34,7 +34,7 @@ public class Main {                       //The Main Class
                     mainObject.addProductToCustomer(); //points at the method that adds product to customer
                     break;
                 case 4:
-                    mainObject.customerList(); //points at the method that print a list with all registrated customers
+                    mainObject.customerList(); //points at the method that print a list with all registered customers
                     break;
                 case 5:
                     mainObject.seekCustomer(); //point at the method where you can seek a customer id and se it´s products
@@ -55,12 +55,12 @@ public class Main {                       //The Main Class
         String city = input.nextLine();
         city = firstLetterToUpperCase(city);
 
-        cr.addCustomer(new Customer(name, city));  // The new customer are added to the CustomerRegistration -
-    }                                               //array that stores all registrated customers.
+        cr.addCustomer(new Customer(name, city));  // Sends the new values of name and city to addCustomer in the class CustomerRegistration
+    }
 
 
     public void customerList() {
-        for (int i = 0; i < cr.customers.size(); i++)  //For loop that list and print all the registrated customers
+        for (int i = 0; i < cr.customers.size(); i++)  //For loop that list and print all the registered customers
             System.out.println(cr.customers.get(i));   //The for loop points at the object in main that refer to the array-
     }                                                  //list for all customers
 
@@ -76,10 +76,10 @@ public class Main {                       //The Main Class
         String unit = input.nextLine();
         input.nextLine();
 
-        sc.addProduct(new Product(name, type, price, unit)); // The new registrated products are added to the ShoppingCart-
+        sc.addProduct(new Product(name, type, price, unit)); // The new registered products are added to the ShoppingCart-
     }                                                        //array for products
 
-    public static String firstLetterToUpperCase(String input){ //A method that changes first letter in the registrated
+    public static String firstLetterToUpperCase(String input){ //A method that changes first letter in the registered
                                                                // name and city to uppercase
         String first = input.substring(0, 1).toUpperCase();
         String rest = input.substring(1).toLowerCase();
@@ -92,17 +92,17 @@ public class Main {                       //The Main Class
         int chosenId = input.nextInt();
 
         int id = chosenId;                          //gives the consoles input as the value to "id".
-        Customer customer = cr.getCustomer(id);
-        if (customer != null) {                    //if the chosenId match a registrated customer the if-statement runs the following:
+        Customer customer = cr.getCustomer(id);   //Sends id to method getCustomer i CustomerRegistration Class.
+        if (customer != null) {                  //if the chosenId match a registered customer the if-statement runs the following:
 
-            for (int i = 0; i < sc.products.size(); i++)  //a for-loop that outprint all the registrated products from
-                System.out.println(sc.products.get(i));    //the product-arraylist so the customer can select a product to shop
+            for (int i = 0; i < sc.products.size(); i++)  //a for-loop that print all the registered products from
+                System.out.println(sc.products.get(i));    //the product-arrayList so the customer can select a product to shop
 
             System.out.println("Välj vara");
-            int chosenProduct = input.nextInt();  //The customer is asked to select a product by it´s ID
+            int chosenProduct = input.nextInt();  //The customer is asked to select a product by it´s productID
 
-            int idproduct = chosenProduct;        //Idproduct Reads in the chosen products id
-            Product product = sc.getProduct(idproduct);
+            int idProduct = chosenProduct;        //idProduct Reads in the chosen products id
+            Product product = sc.getProduct(idProduct);
             customer.customerCart.add(product);
             System.out.println(customer);
             System.out.println(customer.customerCart.toString());
@@ -110,19 +110,19 @@ public class Main {                       //The Main Class
         }
     }
 
-    public void seekCustomer() {  //This method seek a customer by it´s ID. It then print the chosen customer, its shoppingbag -
-                                  // and the total price of the shoppingbag
+    public void seekCustomer() {  //This method seek a customer by it´s ID. It then print the chosen customer, its shoppingBag -
+                                  // and the total price of the shoppingBag
         System.out.println("Ange kund id");
         int chosenId = input.nextInt();
         int id = chosenId;
         Customer customer = cr.getCustomer(id);
-        System.out.println(customer);                            //prints customers
-        System.out.println(customer.customerCart.toString());    //prints the products and totalprice fom the arraylist customerCart
+        System.out.println(customer);                            //print customers
+        System.out.println(customer.customerCart.toString());    //prints the products and totalPrice fom the arrayList customerCart
 
-        float totalPrice = 0;    //declares totalprice as a datatype float och give it a startvalue of 0
+        double totalPrice = 0;    //declares totalPrice as a dataType float och give it a startValue of 0
 
         for (Product product : customer.customerCart) { // for each loop that adds each customers product-price to a -
-            totalPrice += product.getPrice();       // totalvalue and the store the value in the arraylist customerCart.
+            totalPrice += product.getPrice();       // totalValue and the store the value in the arrayList customerCart.
 
         }
         System.out.println("Total pris: " + totalPrice + "Kr");

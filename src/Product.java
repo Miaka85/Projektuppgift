@@ -7,14 +7,14 @@ public class Product implements Serializable {  //The class for products, a shel
     private double price;
     private String unit;
     static int count = 1;
-    int idproduct;
+    int idProduct;
 
     public Product(String name, String type, double price, String unit) {   //constructor
         this.name = name;
         this.type = type;
         this.price = price;
         this.unit = unit;
-        this.idproduct = count++;               //This gives the product a individual id
+        this.idProduct = count++;               //This gives the product a individual id
 
     }
 
@@ -46,11 +46,11 @@ public class Product implements Serializable {  //The class for products, a shel
     }
 
     public void setId(int newIdproduct){
-        this.idproduct =newIdproduct;
+        this.idProduct =newIdproduct;
     }
     public int getIdproduct(){
 
-        return this.idproduct;
+        return this.idProduct;
     }
 
 
@@ -61,7 +61,7 @@ public class Product implements Serializable {  //The class for products, a shel
                 ", type='" + type + '\'' +
                 ", price=" + price +
                 ", unit='" + unit + '\'' +
-                ", idproduct=" + idproduct +
+                ", idproduct=" + idProduct +
                 '}' + "\n";
     }
 }
