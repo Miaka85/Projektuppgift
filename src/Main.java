@@ -48,10 +48,10 @@ public class Main {                       //The Main Class
 
     public void addCustomer() {                  //A method that read in and store "name" and "city" from the user.
                                                  //It points at the object "cr" of the class CustomerRegistration -
-        System.out.println("Enter your Name: "); // and store the input in the customer arrayList
+        System.out.println("Ange ditt Namn: "); // and store the input in the customer arrayList
         String name = input.nextLine();
         name = firstLetterToUpperCase(name);      // Points at the method "firstLetterToUpperCase" that changes the first -
-        System.out.println("Enter your City: ");   //letter in input "name" to uppercase, if the console writes in lowercase
+        System.out.println("Ange din Stad: ");   //letter in input "name" to uppercase, if the console writes in lowercase
         String city = input.nextLine();
         city = firstLetterToUpperCase(city);
 
@@ -146,7 +146,7 @@ public class Main {                       //The Main Class
         return t;
     }
 
-    public void save() {      //Save object to file
+    public void save() {      //This method save object to file
 
         File file = new File("projektet.bin");
         try (ObjectOutputStream out =
@@ -161,7 +161,7 @@ public class Main {                       //The Main Class
         }
     }
 
-        public void load() throws Exception {             //loads the object the next start
+        public void load() throws Exception {             // this method loads the object the next start
             File file = new File("projektet.bin");
             try (ObjectInputStream in =
                          new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
